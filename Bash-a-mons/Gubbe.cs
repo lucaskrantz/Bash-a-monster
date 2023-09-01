@@ -1,6 +1,6 @@
 namespace Namespace;
 public class Gubbe
 {
-    public float hp;
+    public int hp;
     public float attack;
 }

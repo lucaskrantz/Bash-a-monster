@@ -5,12 +5,13 @@ Gubbe g = new();
 Enemy e = new();
 Box b = new();
 
+Random generator = new Random();
+int r = generator.Next(3);
 
 
 g.hp = 200;
 g.attack = 20;
-e.hp = 100;
-e.attack = 10;
+e.enemyHp = 100;
 b.hp = 10;
 b.heal = 40;
 
@@ -21,15 +22,30 @@ while (g.hp > 0)
     string action = Console.ReadLine().ToLower();
     if (action == "a")
     {
-        e.hp -= g.attack;
-        Console.WriteLine($"You attacked! Enemy has {e.hp}hp left. You have {g.hp}hp left!");
+        e.enemyHp -= g.attack;
+        Console.WriteLine($"You attacked! Enemy has {e.enemyHp}hp left. You have {g.hp}hp left!");
     }
+
 
     if (action == "h")
     {
         g.hp += b.heal;
-        Console.WriteLine($"You healed! Enemy has {e.hp}hp left. You have {g.hp}hp left!");
+        Console.WriteLine($"You healed! Enemy has {e.enemyHp}hp left. You have {g.hp}hp left!");
     }
+
+    Console.WriteLine("Du blir attackerad tillbaka.");
+
+
+    e.Attack(g);
+
+    if (r == 3)
+    {
+        e.SpecialAttack(g, r);
+    }
+
+    Console.WriteLine($"Du har nu {g.hp} hp kvar!");
+
+
 }
 
 

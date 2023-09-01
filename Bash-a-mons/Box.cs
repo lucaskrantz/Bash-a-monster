@@ -1,6 +1,6 @@
 namespace Namespace;
 public class Box
 {
-    public float hp;
-    public float heal;
+    public int hp;
+    public int heal;
 }
